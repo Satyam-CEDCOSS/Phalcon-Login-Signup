@@ -1,0 +1,30 @@
+<h2>Login using this form</h2>
+
+<?php echo $this->tag->form("login/login"); ?>
+
+    <p>
+        <label for="email">E-Mail</label>
+        <?php
+        $email = (string)$this->cookies->get('email');
+        echo $this->tag->textField(['email', 'placeholder' => 'Type your Email', 'value'=> $email]);
+        ?>
+    </p>
+
+    <p>
+        <label for="password">Password</label>
+        <?php
+        $password = (string)$this->cookies->get('password');
+        echo $this->tag->textField(['password', 'placeholder' => 'Type your Password', 'value'=> $password]);
+        ?>
+    </p>
+
+    <p>
+        <?php echo $this->tag->submitButton(["Login","class"=>"btn btn-primary"]); ?>
+    </p>
+
+    <p>
+        <label for="delivered">Remember Me: </label>
+        <input type="checkbox" id="delivered" name="delivered" value="1" checked="checked">
+    </p>
+
+</form>

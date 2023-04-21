@@ -1,0 +1,11 @@
+<div class="alert alert-<?php echo $success === true ? 'success' : 'danger'; ?>">
+    <?php
+    use MyApp\User\DateController;
+    
+    echo $message;
+    $class = new DateController();
+    $class->indexAction();
+    ?>
+</div>
+
+<?php echo $this->tag->linkTo(['/', 'Go back', 'class' => 'btn btn-primary']); ?>
