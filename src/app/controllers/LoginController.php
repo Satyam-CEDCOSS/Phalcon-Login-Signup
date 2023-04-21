@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Http\Response;
 
 class LoginController extends Controller
 {
@@ -27,9 +28,17 @@ class LoginController extends Controller
             ]
         );
         if (isset($cars[0])) {
+            $this->session->set("login", "yes");
             $this->view->message = "success";
         } else {
             $this->view->message = "error";
         }
+    }
+
+    public function dashboardAction()
+    {
+        $response = new Response();
+        unset($this->session->login);
+        $this->response->redirect('login');
     }
 }
