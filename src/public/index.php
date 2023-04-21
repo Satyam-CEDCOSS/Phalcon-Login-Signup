@@ -59,7 +59,8 @@ $container->set(
 $container->set(
     'date',
     function () {
-        return date("Y-m-d");
+        date_default_timezone_set("Asia/Calcutta");
+        return date("Y-m-d h-i-sa");
     }
 );
 
